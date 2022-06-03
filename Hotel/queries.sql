@@ -47,3 +47,19 @@ ro.RoomID = re.RoomID
 order by
 ro.RoomID asc;
 
+-- Problem 5
+select
+(adult + children) as 'Total Guests',
+ro.RoomID as 'Room Number'
+from
+reservations re
+left join rooms ro
+on
+ro.RoomId = re.RoomID
+where
+(adult + children) < 3
+and
+reservation_start_date >= '2023-04-01'
+and
+reservation_end_date <= '2023-04-30'
+;
