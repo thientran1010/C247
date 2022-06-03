@@ -55,13 +55,11 @@ CREATE TABLE Room_Amenities (
 CREATE TABLE Room (
    RoomID INTEGER PRIMARY KEY,
    RoomTypeID INTEGER,
-   AddressID INTEGER,
-   RoomAmenitiesID INTEGER,
    ADA BOOLEAN,
-   PricesegmentID CHAR(30),
+   BasePrice DECIMAL(10,2),
   #FOREIGN KEY (ID) REFERENCES Reservations(ID),
-  FOREIGN KEY (RoomTypeID) REFERENCES RoomType(RoomTypeID),
-  FOREIGN KEY (RoomAmenitiesID) REFERENCES Room_Amenities(RoomAmenitiesID)
+  FOREIGN KEY (RoomTypeID) REFERENCES RoomType(RoomTypeID)
+  #FOREIGN KEY (RoomAmenitiesID) REFERENCES Room_Amenities(RoomAmenitiesID)
 );
 
 CREATE TABLE Reservations (
@@ -84,3 +82,4 @@ CREATE TABLE Amenities (
   AmenityType CHAR(20),
   Price INTEGER
 );
+
