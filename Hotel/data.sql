@@ -96,10 +96,10 @@ INSERT INTO `hotel`.`addresses` (`ID`, `Address`, `Zip`, `State`, `City`, `Count
 
 
 
---- GUESTS TABLE
+-- GUESTS TABLE
 
 INSERT INTO `hotel`.`guests` (`ID`, `AddressID`, `FirstName`, `LastName`, `Phone`) VALUES ('1', '1', 'Mack', 'Simmer', '2915530508');
-INSERT INTO `hotel`.`guests` (`ID`, `AddressID`, `FirstName`, `LastName`, `Phone`) VALUES ('2', '2', 'Bettyann', 'seery', '4782779632');
+INSERT INTO `hotel`.`guests` (`ID`, `AddressID`, `FirstName`, `LastName`, `Phone`) VALUES ('2', '2', 'Bettyann', 'Seery', '4782779632');
 INSERT INTO `hotel`.`guests` (`ID`, `AddressID`, `FirstName`, `LastName`, `Phone`) VALUES ('3', '3', 'Duane', 'Cullison', '3084940198');
 INSERT INTO `hotel`.`guests` (`ID`, `AddressID`, `FirstName`, `LastName`, `Phone`) VALUES ('4', '4', 'Karie', 'Yang', '2147300298');
 INSERT INTO `hotel`.`guests` (`ID`, `AddressID`, `FirstName`, `LastName`, `Phone`) VALUES ('5', '5', 'Aurore', 'Lipton', '3775070974');
