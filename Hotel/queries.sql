@@ -32,3 +32,18 @@ on g.ID = r.GuestID
 where
 g.ID = 2;
 
+-- Problem 4
+select
+ro.RoomID as 'Room Number',
+re.ID as 'Reservation ID',
+reservation_start_date as 'Reservation Start Date',
+reservation_end_date as 'Reservation End Date',
+price as 'Total Price'
+from
+rooms ro
+left outer join reservations re
+on
+ro.RoomID = re.RoomID
+order by
+ro.RoomID asc;
+
