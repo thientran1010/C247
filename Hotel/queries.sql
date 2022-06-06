@@ -63,3 +63,41 @@ reservation_start_date >= '2023-04-01'
 and
 reservation_end_date <= '2023-04-30'
 ;
+
+-- Problem 6
+
+select
+FirstName,
+LastName,
+count(re.ID) as 'Reservation Count'
+from
+guests g
+inner join
+reservations re
+on
+g.ID = re.guestID
+group by
+FirstName
+order by
+3 desc, 2
+;
+
+-- Problem 7
+select
+FirstName,
+LastName,
+a.Address,
+a.State,
+a.City,
+a.Zip,
+a.Country,
+Phone as 'Phone Number'
+from
+guests g
+inner join
+addresses a
+on g.AddressID = a.ID
+order by
+phone;
+
+
