@@ -3,7 +3,7 @@
 SELECT g.firstname, g.lastname , rs.roomID , r.reservation_start_date, r.reservation_end_date FROM Reservations r
 LEFT JOIN Guests g ON r.guestID=g.ID 
 LEFT JOIN Room rs on r.RoomID=rs.RoomID
-WHERE r.reservation_end_date >= '2023-07-01'
+WHERE r.reservation_end_date <= '2023-07-31'
 ;
 
 -- Problem 2 
