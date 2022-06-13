@@ -3,11 +3,12 @@ import FoodItem
 class Burger(FoodItem):
     
     patty=""
-    type=""
-    def __init__(self, name, price, patty, type):
+    # add lettuce, pickles, tomatoes, and sauce
+    extras=[]
+    def __init__(self, name, price, patty):
         FoodItem.__init__(self, name, price)
         self.patty=patty
-        self.type=type
+        self.extras
 
     def display(self):
         print(self)    
