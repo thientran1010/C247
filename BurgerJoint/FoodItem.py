@@ -1,3 +1,12 @@
+menu = { "burger": 5.00 }
+
+
+d={
+    "name": "Burger",
+   "price": 0
+}
+
+
 class FoodItem:
   price=0
   name=""
