@@ -79,7 +79,14 @@ ordering=True
 #while(True):
 menu ={
     "soda":1.00,
-    'salad':5.45
+    'salad':5.45,
+    "burger": {
+            "beef": 6.0,
+            "chicken": 5.0,
+            "veggie": 6.0,
+            "single": 0.0,
+            "double": 1.0
+        }
 }
 
 def createBurger():
@@ -106,15 +113,32 @@ def createSide():
     return s
 
 def createBurger():
-  name = input("Select a side: ")
-  size = input("Select the size of the burger: ")
-  patty = input("Select the patty of the burger (single/double): ")
-  s = Side(name,menu[name],patty)
-  finalized=True
-  finalized=bool(input("Do you finish ordering side? True/False "))
+  name = input("Select a burger: ")
+  patty = input("Do you want a single or double patty: ")
+  toppings=[]  
+    
+  topping_counter=0
+  while topping_counter < 3:
+        topping = input("What toppings do you want? Onions, lettuce, tomatoes, and/or pickles. Say all if you want all of these toppings: ")
+        topping = topping.lower()
+        if topping == 'all':
+            toppings = ["onions", 'lettuce', 'tomatoes', 'pickles']
+            break
+        elif topping ==  "onions" or topping == 'lettuce' or topping == 'tomatoes' or topping == 'pickles':
+            toppings.append(topping)
+            topping_counter += 1
+        else:
+            print("I don't understand please try again.")
+          
+  b = Burger(name, menu["burger"][name], patty, toppings)
+
+  if b.patty.lower() == "double":
+        b.price += 1
+  print(b.price)
+  finalized=bool(input("Do you finish ordering burger? True/False "))
   if finalized:
-    return s
-  pass
+    return b
+  return False
 
 def userInput():
   order=Order()
