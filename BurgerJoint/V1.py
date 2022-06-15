@@ -180,6 +180,8 @@ def userInput():
       if drink is not None: order.add(drink)
     if orderType.lower() == 'side':
       s = createSide()
+    if orderType.lower() == 'burger':
+      s = createBurger()
       if s is not None: order.add(s)
     cont= input("Do you want to order (True/False): ")
   
