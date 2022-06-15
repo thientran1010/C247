@@ -1,12 +1,3 @@
-menu = { "burger": 5.00 }
-
-
-d={
-    "name": "Burger",
-   "price": 0
-}
-
-
 class FoodItem:
   price=0
   name=""
@@ -78,19 +69,23 @@ class Order:
 
 
 ordering=True
-#while(True):
 menu ={
-    'soda1':1.00,
-'soda2':1.20,
-'soda3':1.30,
+    'soda':{
+        'small':1.0,
+        'medium':1.20,
+        'large':1.30
+    },
+    'coffee':{
+        'small':3.00,
+        'medium':4.00,
+        'large':5.00
+    },
+    'juice':{
+        'small':2.00,
+        'medium':3.00,
+        'large':4.00
+    },
 
-'coffee1':3.00,
-'coffee2':4.00,
-'coffee3':5.00,
-
-'juice1':2.00,
-'juice2':3.00,
-'juice3':4.00,
     'salad':5.45,
     "burger": {
             "beef": 6.0,
@@ -129,6 +124,7 @@ def createDrink():
   name_counter=0
   while name_counter < 1:
         name = input("What type do you want? coffee or juice or soda")
+        name=name.lower()
         if  name ==  'coffee' or name == 'juice' or name == 'soda':
             name_counter += 1
         else:
@@ -137,6 +133,7 @@ def createDrink():
   drink_counter=0
   while drink_counter < 1:
         size = input("What size do you want? small or medium or large")
+        size = size.lower()
         if  size ==  'small' or size == 'medium' or size == 'large':
             drink_counter += 1
         else:
@@ -145,14 +142,15 @@ def createDrink():
   ice_counter=0
   while ice_counter < 1:
         ice = input("Do you want it with ice: true or false")
+        ice = ice.lower()
         if  ice ==  'true' or ice == 'false':
             ice_counter += 1
         else:
             print("I don't understand please try again.")
 
 
-  drink = Drink(name,menu[name],size,ice)
-  finalized=bool(input("Do you finish ordering side? True/False "))
+  drink = Drink(name,menu[name][size],size,ice)
+  finalized=bool(input("Do you finish ordering drink? True/False "))
   if finalized:
     return drink
   return False
@@ -250,6 +248,7 @@ def userInput():
       if drink is not None: order.add(drink)
     if orderType.lower() == 'side':
       s = createSide()
+      if s is not None: order.add(s)
     if orderType.lower() == 'burger':
       s = createBurger()
       if s is not None: order.add(s)
@@ -257,7 +256,3 @@ def userInput():
   
   order.calculateTotal()
   order.display()
-
-  
-  
-
