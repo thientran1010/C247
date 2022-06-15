@@ -89,9 +89,7 @@ menu ={
         }
 }
 
-def createBurger():
-  name = input("Select a burger: ")
-  pass
+
 
 def createDrink():
   name = input("Select a drink: ")
