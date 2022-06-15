@@ -89,7 +89,16 @@ menu ={
         }
 }
 
-
+side_menu={
+    "salad":5.85,
+    "poutine":6.30,
+    "wrap":5.75
+}
+size_side_menu={
+    "small":0,
+    "medium":1.00,
+    "large":2.00
+}
 
 def createDrink():
   name = input("Select a drink: ")
@@ -102,9 +111,17 @@ def createDrink():
   return False
 
 def createSide():
+  print(side_menu.keys())
   name = input("Select a side: ")
+  while name.lower() not in side_menu.keys():
+    print("Item not on the list. Try again")
+    name = input("Select a side: ")
+  print(size_side_menu.keys())
   size = input("Select the size of the side: ")
-  s = Side(name,menu[name],size)
+  while size.lower() not in size_side_menu.keys():
+    print("Item not on the list. Try again")
+    size = input("Select a side: ")
+  s = Side(name,side_menu[name]+size_side_menu[size],size)
   finalized=True
   finalized=bool(input("Do you finish ordering side? True/False "))
   if finalized:
@@ -177,8 +194,10 @@ def userInput():
       if drink is not None: order.add(drink)
     if orderType.lower() == 'side':
       s = createSide()
+    if orderType.lower() == 'burger':
+      s = createBurger()
       if s is not None: order.add(s)
-    cont= input("Do you want to order (True/False): ")
+    cont= input("Do you want to continue to order (True/False): ")
   
   order.calculateTotal()
   order.display()
