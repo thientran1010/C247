@@ -52,7 +52,7 @@ class Burger(FoodItem):
         self.toppings=toppings
 
     def display(self):
-        print(self)    
+        print(self.__dict__)    
 
 class Order:
   # menu ={
