@@ -111,11 +111,26 @@ def createSide():
     return s
 
 def createBurger():
-  name = input("Select a burger: ")
-  patty = input("Do you want a single or double patty: ")
-  toppings=[]  
-    
+  toppings=[] 
+  is_name=False 
+  is_patty=False  
   topping_counter=0
+
+  while is_name == False:
+    name = input("Select a burger: ")
+    name = name.lower()
+    if name in menu["burger"]:
+      break
+    else: 
+      print("Not an option. Please select again.")
+  while is_patty == False:
+    patty = input("Do you want a single or double patty: ")
+    patty = patty.lower()
+    if patty == "double" or patty == "single": 
+      break
+    else: 
+      print("Not an option. Please try again.")
+
   while topping_counter < 3:
         topping = input("What toppings do you want? Onions, lettuce, tomatoes, and/or pickles. Say all if you want all of these toppings: ")
         topping = topping.lower()
