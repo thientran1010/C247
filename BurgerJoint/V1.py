@@ -44,10 +44,12 @@ class Side(FoodItem):
 class Burger(FoodItem):
     
     patty=""
-    
-    def __init__(self, name, price, patty):
+    # add lettuce, pickles, tomatoes, and sauce
+    toppings=[]
+    def __init__(self, name, price, patty, toppings):
         FoodItem.__init__(self, name, price)
         self.patty=patty
+        self.toppings=toppings
 
     def display(self):
         print(self)    
