@@ -193,30 +193,37 @@ def createBurger():
       print("Not an option. Please try again.")
   want_more=True
   good_input=False
-  
-  while topping_counter < 4 and want_more==True:
-        topping = input("What toppings do you want? Onions, lettuce, tomatoes, and/or pickles. Say all if you want all of these toppings: ")
-        topping = topping.lower()
-        if topping == 'all':
-            toppings = ["onions", 'lettuce', 'tomatoes', 'pickles']
-            break  
-        elif (topping ==  "onions" or topping == 'lettuce' or topping == 'tomatoes' or topping == 'pickles') and toppings.count(topping) == 0:
-            print(topping)
-            toppings.append(topping)
-            topping_counter += 1
-            while good_input == False:
-              ask_for_more = input("Do you want more toppings? (y/n): ")
-              if ask_for_more.lower() == "y" or ask_for_more.lower() == "yes":
-                break
-              elif ask_for_more.lower() == "n" or ask_for_more.lower() == "no":
-                want_more=False
-                break
-              else: 
+  want_topping=True
+  while want_topping == True:
+      does_user_want = input("Do you want to add toppings? y/n: ")
+      if does_user_want.lower() == "y" or does_user_want.lower() == "yes":
+          while topping_counter < 4 and want_more==True:
+            topping = input("What toppings do you want? Onions, lettuce, tomatoes, and/or pickles. Say all if you want all of these toppings: ")
+            topping = topping.lower()
+            if topping == 'all':
+                toppings = ["onions", 'lettuce', 'tomatoes', 'pickles']
+                break  
+            elif (topping ==  "onions" or topping == 'lettuce' or topping == 'tomatoes' or topping == 'pickles') and toppings.count(topping) == 0:
+                toppings.append(topping)
+                topping_counter += 1
+                while good_input == False:
+                  ask_for_more = input("Do you want more toppings? (y/n): ")
+                  if ask_for_more.lower() == "y" or ask_for_more.lower() == "yes":
+                    break
+                  elif ask_for_more.lower() == "n" or ask_for_more.lower() == "no":
+                    want_more=False
+                    want_topping=False
+                    break
+                  else: 
+                    print("Please enter the correct response.")
+            elif toppings.count(topping) > 0:
+              print("Please add another one you already have this topping")    
+            else:
+                print("I don't understand please try again.")
+      elif does_user_want.lower() == "n" or does_user_want.lower() == "no":
+            break
+      else:
                 print("Please enter the correct response.")
-        elif toppings.count(topping) > 0:
-          print("Please add another one you already have this topping")    
-        else:
-            print("I don't understand please try again.")
          
   b = Burger(name, menu["burger"][name], patty, toppings)
 
