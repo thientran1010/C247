@@ -125,23 +125,27 @@ d={'soda1':1.00,
 }
 
 def createDrink():
-  name = input("Select a drink: ")
-  size = input("Select the size of the drink: ")
-  ice = input("Do you want it with ice: ")
-
+    
+  name_counter=0
+  while name_counter < 1:
+        name = input("What type do you want? coffee or juice or soda")
+        if  name ==  'coffee' or name == 'juice' or name == 'soda':
+            name_counter += 1
+        else:
+            print("I don't understand please try again.")
 
   drink_counter=0
   while drink_counter < 1:
-        size = input("What size do you want? 1=small 2=medium 3=large")
-        if  size ==  1 or size == 2 or size == 3:
+        size = input("What size do you want? small or medium or large")
+        if  size ==  'small' or size == 'medium' or size == 'large':
             drink_counter += 1
         else:
             print("I don't understand please try again.")
             
   ice_counter=0
   while ice_counter < 1:
-        ice = input("Do you want it with ice: 0 or 1")
-        if  ice ==  1 or ice == 2:
+        ice = input("Do you want it with ice: true or false")
+        if  ice ==  'true' or ice == 'false':
             ice_counter += 1
         else:
             print("I don't understand please try again.")
@@ -152,6 +156,7 @@ def createDrink():
   if finalized:
     return drink
   return False
+
 
 
 def createSide():
