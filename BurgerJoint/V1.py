@@ -183,7 +183,7 @@ def userInput():
     if orderType.lower() == 'burger':
       s = createBurger()
       if s is not None: order.add(s)
-    cont= input("Do you want to order (True/False): ")
+    cont= input("Do you want to continue to order (True/False): ")
   
   order.calculateTotal()
   order.display()
