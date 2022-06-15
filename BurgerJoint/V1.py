@@ -209,7 +209,7 @@ def createBurger():
 def userInput():
   order=Order()
   cont= input("Do you want to order (True/False): ")
-  while(cont=='True'):
+  while(cont.lower() =='true'):
     orderType = input("Please choose type of order (combo, burger, drink, side): ")
     if orderType.lower() == 'drink':
       drink = createDrink()
